@@ -40,7 +40,7 @@ Currently, this repository contains `pdf`, `html` and `docx` conversions of the 
 
 === The easy way
 
-Depending on what you want, you can just click on the files in the `adoc` directory in your web browser and just straight up copy/paste text into your grant document. Or, you can download the `docx` derivatives by clicking on them and then copy/paste/use as you see fit.
+Depending on what you want, you can just click on the files in the `adoc` directory in your web browser and just straight up copy/paste text into your grant document. Or, you can download the `docx` derivatives by clicking on them in your browser, and then choosing the "Download" icon on the top left. Once copied to your computer, you can then copy/paste/use as you see fit.
 
 === The more advanced way
 
