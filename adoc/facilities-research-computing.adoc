@@ -1,0 +1,35 @@
+= Facilities and Other Resources
+
+
+== Boston Children's Hospital Research Computing
+
+=== Overview
+
+BCH Research Computing (RC) is devoted to providing support for the special computing needs of the research community at Children’s. RC provides data storage and backup for over 90 research entities at BCH. These data add up to more than 15PB. RC offers support, software, desktop backup, and training. The RC technicians are certified by Apple and Dell. RC also does in-house application development and provides technical support for several research support systems. More recently, RC has released a new support model called Pediatric Scholar, based on changing market conditions and community interest. Many new cloud services and software are now tied to the BCH user account rather than individual PCs and Macs. RC also provides recommendations for additional software packages that can often be purchased with an additional discount. Please see the following for software supported in Pediatric Scholar.
+
+• Productivity and Research Data Management Tools: GSuite and Google collaborative tools, Lab Archives, DropBox Business
+
+• Human Genomics Software: WuXi NextCODE 4.15, Alamut Visual Software, Golden Helix VarSeq 1.4.4
+
+• Molecular Biology Software: Geneious, version 11, DNASTAR Lasergene 12, MacVector 15.5, Sequencher 5.4.6,Ingenuity Pathway Analysis (IPA)
+
+• Bioinformatics Tools: BLAST, HOMER, MACS, Bowtie, Cufflinks, Tophat, Cytoscape, Integrative Genomics Viewer, FlowJo
+
+• Statistic Software: RStudio,  PASS 15, SAS 9.4, Stata 15, MATLAB 2017a, GraphPad Prism 7, SPSS 24
+
+• Manuscript and Basic Productivity Tools: Microsoft Office365, EndNote 8, Adobe Acrobat DC/2015.
+
+=== BCH HPC Cluster
+
+Research Computing hosts the E2 high-performance cluster that is accessible to all researchers in BCH
+
+[cols="1,1,1,1,1,1,1, 1"]
+|===
+|Resource Type | SLURM Partition | CPU Type | GPU Type | # Nodes | # CPUs | # GPUs | RAM per node
+
+| Large Memory Servers | bch-largemem | Intel Xeon (2.2, 2.8 GHz) | - | 4 | 244 | - | 256, 512, 768GB
+
+| GPU Servers | bch-gpu | Intel Xeon (2.2, 2.9GHz) | TeslaK80, Tesla T4, Titan RTX, Quadro RTX | 5 | 3-4 | 29 | 192, 512, 768 GB
+
+| General Compute | bch-compute, bch-interactive | Intel Xeon (2.2, 2.5, 2.67, 2.8, 2.9 GHz) | - | 27 | 864 | - | 64, 96, 128, 256, 512, 768 GB
+|===

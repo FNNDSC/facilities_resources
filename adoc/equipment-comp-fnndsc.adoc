@@ -1,0 +1,26 @@
+= Equipment
+
+== Fetal Neonatal Neuroimaging Development Science Center (FNNDSC)
+
+=== Primary Computing Equipment
+
+==== High Performance Computing
+
+As part of the larger BCH in-house computing, the FNNDSC has priority access to two GPU clusters that use traditional HPC scheduling services via `SLURM`.
+
+One was purchased in March of 2019 and consists of two 80 CPU threaded
+nodes with 512GB RAM, each with 80 CPU threads and 2x Tesla K GPUs. A second was deployed in August 2022 and consists of three sets of Lenovo ThinkSystem SR670 Racks that support a total of 12 NVIDIA A40 GPUs (each with 10,752 cores, 48GB GDDR6 memory, and 696 GB/s memory bandwidth). These GPUs have been used for many computational tasks including training artificial intelligence algorithms for medical image computing and are primarily administered by BCH Research Computing.
+
+==== Cloudlet Cluster for Real-Time Data Analysis and Visualization
+
+Additionally, the center maintains an 11 node, 274-core computer cluster with NVIDIA GPUs fully dedicated to our research, primarily for streaming research and patient monitor data and real-time analysis. The cluster is located on the premises of the main hospital to ensure low latency and high availability for real-time streaming data from and to patients' bedside. We have also installed a smaller cluster for another study at our remote research site at the CURE Children’s Hospital of Uganda, for local analysis and streaming of NIRS data from Africa to our cluster at BCH. We also use the cluster for machine learning and simulations of photon and ultrasound transport through tissue. Analysis is performed with custom software developed in house, in conjunction with open-source databases and distributed computation frameworks. We also own permanent software licenses for professional mechanical (Solidworks) and optical (Breault ASAP) CAD software for engineering probes and phantoms, and for electronic printed circuit design (Altium Design).
+
+==== kubernetes Cluster
+
+Galena is a Kubernetes cluster operated by the FNNDSC. It sports 9 Nvidia GPUs, 279 CPU cores, and 1,411 GiB of RAM. The cluster is primarily commodity hardware (retired, repurposed workstations) located in the Landmark Center, 6th floor server room. Galena has a storage class called rc-nfs using RC-FS-NFS to provide volumes (ReadWriteMany).
+
+The primary purpose of galena is to provide compute resources to ChRIS. As an on-premise resource, data with PHI may be used. GPU-accelerated ChRIS plugins are scheduled to one of the four GPU nodes of galena. Alternatively, a subset of the nodes supporting CPU Advanced Vector eXtensions (AVX) are used for machine-learning (ML) apps which depend on legacy or outdated GPU drivers (see blog).
+
+We are using Kubespray to provision the cluster. Thanks to containerization, we are able to keep the OS software and kubelet versions up-to-date without breaking compatibility with the applications running on them.
+
+

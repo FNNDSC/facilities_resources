@@ -1,0 +1,26 @@
+= Facilities and Other Resources
+
+== Harvard Medical School
+
+=== Overview
+
+O~2~ is a platform for Linux-based high-performance computing at Harvard Medical School that is readily available to BCH employees. The name is derived from being the next generation of the HMS "Orchestra" cluster, hence "O"~2~. O~2~ is managed by the Research Computing Group, part of HMS IT. O~2~ is an HPC cluster built on Linux and the `SLURM` open source job scheduler.
+
+
+=== Detail
+
+O~2~ currently includes 371 computing nodes for a total of 11356 cores and ~98TB of memory:
+
+• 232 nodes, each node hostname is composed by the prefix compute-a-16- or compute-a-17- and the node number, for example compute-a-16-28, compute-a-16-29, ..., compute-a-16-171. Each node has 32 physical compute cores, 256GB of memory and is connected to the network with a 10Gb ethernet card and in addition with a 40Gb Infiniband card.
+
+• 69 nodes, each node hostname is composed by the prefix compute-e-16- and the node number. Each node has 28 physical compute cores, 256GB of memory and is connected to the network with a 10Gb ethernet card.
+
+• 17 nodes, each node hostname is composed by the prefix compute-f-16- and the node number. Each node has 20 physical compute cores, 188GB of memory and is connected to the network with a 10Gb ethernet card.
+
+• 11 heterogenous high memory nodes, each node hostname is composed by the prefix compute-h-16- and the node number; 7 nodes have 750GB of memory, 1 node 300GB and the other node 1TB.
+
+• 6 GPU compute nodes, each node hostname is composed by the prefix compute-g-16- and the node number. Two nodes have 4 Tesla V100 each, two nodes have 8 Tesla K-80 each and two nodes have 4 Tesla M-40 for a total of 32 GPU units.
+
+• 3 transfer nodes, each node hostname is composed by the prefix compute-t-16- and the node number. Each node is a VM with 4 cores and 6GB of memory, those nodes are intended for data transfer to/from the /files filesystem.
+
+• 31 contributed nodes, for a total of 1160 cores and ~10TB of memory.

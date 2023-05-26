@@ -1,0 +1,67 @@
+= Equipment and Facilities Relevant to the FNNDSC
+
+== Overview
+
+This repository provides a central location for grant-ready supporting documents useful for inserting into _Facilities and Resources_ and _Equipment_ documents. Typically these are required by NIH applications, and in this repository are various source documents for the Fetal Neonatal Neuroimaging Development Science Center (https://fnndsc.org[FNNDSC]) at Boston Children's Hospital (https://www.childrenshospital.org/research/centers/fetal-neonatal-neuroimaging-and-developmental-science-center-research[BCH]).
+
+== Organization
+
+The source of truth, or reference documentation, is in the `adoc` directory. This contains several files, some with the prefix _equipment_ (for NIH "Equipment" documentation) and others with the prefix _facilities_ (for NIH "Facilities and Resources" documentation). The contents of these documents are intended to be mix-and-match for a specific application and context and should be rather self-evident.
+
+Please note that these are written in AsciiDoc format (see https://en.wikipedia.org/wiki/AsciiDoc[here]) and despite the `doc` in the suffix have _nothing_ to do with Microsoft Word.
+
+== Wait? What is AsciiDoc? That's not Word?
+
+Yes. Astute observation. The core files here are not `docx` but plain old universally readable and friendly and slightly marked-up text. Even here in github, the AsciiDoc files are interpreted and shown nicely -- thus it's a more easily accessible, editable, and sharable format. Perfect for capturing information.
+
+You might wonder, "What's markup?". Well, you can think of it like `html` or any format that embeds formatting instructions into a text document. For instance, in AsciiDoc to make a word **bold** we simply pre-and post-fix it with two asterisks:
+
+[literal]
+----
+To make the FNNDSC bold, we just do **FNNDSC**!
+----
+
+"To make the FNNDSC bold, we just do **FNNDSC**!"
+
+AsciiDoc markup doesn't really interfere with reading the text document to a human, and being text can be easily converted to many other formats. Microsoft Word, despite being widely used by many researchers to create documentation, is not an ideal format for storing information. Firstly, it is a _terminal_ format, meaning it is quite difficult to convert easily into other format (such as LaTeX or html, or even pdf). Secondly, being a proprietary, binary format it requires complex tools to simply read and edit. You often have to actually download a Word file to just simply view it.
+
+Text, on the other hand, is a universal format. Thus, the decision was made to use a text-based format to capture information and then _convert_ this text into output formats as needed. Hence, AsciiDoc was selected due to its simple text-based light markdown, ease of editing, simplicity in copying into other documents, and also ability to be processed by other toolchains into many formats.
+
+== Just where are the Word doc files?
+
+You might be wondering, "Ok. Fine. I get it. Text is good. Word is... less good?" Still you might quite legitimately feel, "Please can I just have Word files anyway?" I don't want to copy marked up text into my Word doc and then go and format it manually.
+
+No worries.  We got you. Just look in the `docx` directory for Word files. Please note that these were _automatically_ generated from the `adoc` sources, so changing/updating the Word files for this repo is not recommended. Rather, we prefer/ask you update the text `adoc` files and we can then create new `docx` derivatives.
+
+Currently, this repository contains `pdf`, `html` and `docx` conversions of the core AsciiDoc text files.
+
+
+== How to use?
+
+=== The easy way
+
+Depending on what you want, you can just click on the files in the `adoc` directory in your web browser and just straight up copy/paste text into your grant document. Or, you can download the `docx` derivatives by clicking on them and then copy/paste/use as you see fit.
+
+=== The more advanced way
+
+If you know `github` and are on Linux (or possibly macOS) you can just clone this repo
+
+[source,console]
+cd ~/somedir
+git clone https://github.com/FNNDSC/facilities_resources
+
+to pull the repo. If you want to make changes to the `adoc` and then automatically generate updated `docx` derivatives:
+
+[source,console]
+----
+# to build the derivatives you need
+# 'make', 'asciidoctor', 'ascidoctor-pdf', 'pandoc'
+cd facilities_resources
+make
+----
+
+== Contributions welcome!
+
+If you have updates/suggestions etc, please let us know and we can all help to keep these documents up to date.
+
+_-30-_
