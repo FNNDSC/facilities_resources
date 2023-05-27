@@ -12,7 +12,7 @@ Please note that these are written in AsciiDoc format (see https://en.wikipedia.
 
 == Wait? What is AsciiDoc? That's not Word?
 
-Yes. Astute observation. The core files here are not `docx` but plain old universally readable and friendly and slightly marked-up text. Even here in github, the AsciiDoc files are interpreted and shown nicely -- thus it's a more easily accessible, editable, and sharable format. Perfect for capturing information.
+Yes. Astute observation. The core files here are not `docx` but plain old universally readable and friendly and slightly marked-up text. For example _this_ document itself was written in AsciiDoc format -- note how `github` nicely formats and displays it. Being text based, it's a more easily accessible, editable, and sharable format. Perfect for capturing information.
 
 You might wonder, "What's markup?". Well, you can think of it like `html` or any format that embeds formatting instructions into a text document. For instance, in AsciiDoc to make a word **bold** we simply pre-and post-fix it with two asterisks:
 
