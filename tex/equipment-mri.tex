@@ -1,0 +1,269 @@
+%% Preamble %%
+%% A minimal LaTeX preamble
+%% Some packates are needed to implement
+%% Asciidoc features
+
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}               % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}       % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\usepackage{epstopdf}
+\usepackage{color}
+% \usepackage[usenames, dvipsnames]{color}
+% \usepackage{alltt}
+
+
+\usepackage{amssymb}
+% \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[version=3]{mhchem}
+
+
+% Needed to properly typeset
+% standard unicode characters:
+%
+\RequirePackage{fix-cm}
+\usepackage{fontspec}
+\usepackage[Latin,Greek]{ucharclasses}
+%
+% NOTE: you must also use xelatex
+% as the typesetting engine
+
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{en}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.png, .jpg, jpeg, .pdf}
+
+%% \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%% Asciidoc TeX Macros %%
+
+
+% \pagecolor{black}
+%%%%%%%%%%%%
+
+
+% Needed for Asciidoc
+
+\newcommand{\admonition}[2]{\textbf{#1}: {#2}}
+\newcommand{\rolered}[1]{ \textcolor{red}{#1} }
+\newcommand{\roleblue}[1]{ \textcolor{blue}{#1} }
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{problem}{Problem}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+\newtheorem{joke}{Joke}
+\newtheorem{objection}{Objection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Extended quote environment with author
+
+\renewenvironment{quotation}
+{   \leftskip 4em \begin{em} }
+{\end{em}\par }
+
+\def\signed#1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil\raise-3pt\hbox{(#1)}%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+
+\newsavebox\mybox
+
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quotation}}
+  {\signed{\usebox\mybox}\end{quotation}}
+
+\newenvironment{tquote}[1]
+  {  {\bf #1} \begin{quotation} \\ }
+  { \end{quotation} }
+
+%% BOXES: http://tex.stackexchange.com/questions/83930/what-are-the-different-kinds-of-boxes-in-latex
+%% ENVIRONMENTS: https://www.sharelatex.com/learn/Environments
+
+\newenvironment{asciidocbox}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+\newenvironment{titledasciidocbox}[1]
+  {\leftskip6em\rightskip6em\par{\bf #1}\vskip-0.6em\par}
+  {\par}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% http://texblog.org/tag/rightskip/
+
+
+\newenvironment{preamble}
+  {}
+  {}
+
+%% http://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text
+%%
+\newenvironment{sidebar}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+
+%%%%%%%%%%
+
+\newenvironment{comment*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+  \newenvironment{remark*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+
+%% Dummy environment for testing:
+
+\newenvironment{foo}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{foo*}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{click}
+  {\bf Click.\ }
+  {}
+
+\newenvironment{click*}
+  {\bf Click.\ }
+  {}
+
+
+\newenvironment{remark}
+  {\bf Remark.\ }
+  {}
+
+\newenvironment{capsule}
+  {\leftskip10em\par}
+  {\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Style
+
+\parindent0pt
+\parskip8pt
+%% User Macros %%
+%% Front Matter %%
+
+\title{Equipment}
+\author{}
+\date{}
+
+
+%% Begin Document %%
+
+\begin{document}
+\maketitle
+\hypertarget{x-boston-children’s-hospital-core-mri}{\section*{Boston Children’s Hospital Core MRI}}
+Boston Children’s Hospital (BCH) has multiple MRI scanners, which are used for both research and clinical purposes.
+
+
+\hypertarget{x-main-campus}{\subsection*{Main Campus}}
+\hypertarget{x-mr1:-3.0t-mri-at-mandell-2}{\subsubsection*{MR1: 3.0T MRI at Mandell 2}}
+This system is a 3T Siemens Prisma platform with TIM (Total Imaging Matrix) technology, with available 128 RF receive channels, and equipped with 64-ch head and 60-ch body receive coil array for improved image quality. This 60cm MR scanner is capable of delivering unprecedented maximum gradient strength and slew of 80mT/m and 200mT/m/ms, respectively. The system is capable of simultaneous multi-slice EPI functional and diffusion imaging, quantitative flow measurements, CINE, MR angiography, perfusion studies and spectroscopy for both neuro and body applications.
+
+
+\hypertarget{x-mr2:-3.0t-mri-at-mandell-2}{\subsubsection*{MR2: 3.0T MRI at Mandell 2}}
+This system is a 3T Siemens Skyra TIM platform that comes with 64 RF receive channels, maximum gradient amplitude and slew of 40mT/m and 180mT/m/ms, respectively, and a 70cm patient bore for improved subject comfort. The system is capable of EPI functional imaging at a sustained rate of 15 images per second, CINE, MR angiography, diffusion and perfusion studies and spectroscopy, for neuro and body applications.
+
+
+\hypertarget{x-mr4:-3.0t-mri-at-main-2}{\subsubsection*{MR4: 3.0T MRI at Main 2}}
+This is a 3T Siemens Vida system with 70cm wide bore, 128 receive channel whole-body MRI, with EPI, second order shimming, CINE, MR angiography, diffusion, perfusion, quantitative flow, and spectroscopy capabilities for both neuro and body applications. This system comes with maximum gradient amplitude and slew rate of 60mT/m and 200mT/m/ms. The system is equipped with 64-ch head and 60-ch body receive coil array for improved image quality.
+
+
+\hypertarget{x-mr5:-3.0t-mri-at-main-2}{\subsubsection*{MR5: 3.0T MRI at Main 2}}
+This is a newly installed 3T Siemens Vida system with 70cm wide bore, 128 receive channel whole-body MRI, with EPI, second order shimming, CINE, MR angiography, diffusion, perfusion, quantitative flow, and spectroscopy capabilities for both neuro and body applications. This system comes with maximum gradient amplitude and slew rate of 60mT/m and 200mT/m/ms. The system is equipped with 64-ch head and 60-ch body receive coil array for improved image quality.
+
+
+\hypertarget{x-mr6:-3.0t-mri-at-mandell-7}{\subsubsection*{MR6: 3.0T MRI at Mandell 7}}
+This is a 3T Siemens Skyra platform with TIM (Total Imaging Matrix) technology, with available 128 RF receive channels, and equipped with 64-ch head receive coil array for improved image quality. This 70cm MR scanner is capable of delivering maximum gradient strength and slew of 40mT/m and 180mT/m/ms, respectively. The system is capable of EPI functional imaging at a sustained rate of 15 images per second, CINE, MR angiography, diffusion and perfusion studies and spectroscopy for both neuro and body applications.
+
+
+\hypertarget{x-1.5t-mri,-department-of-radiology}{\subsubsection*{1.5T MRI, Department of Radiology}}
+\emph{not used for research purposes}.
+
+
+\hypertarget{x-brookline-place}{\subsection*{Brookline Place}}
+\hypertarget{x-mr7:-3.0t-mri}{\subsubsection*{MR7: 3.0T MRI}}
+This system is a 3T Siemens Prisma platform with TIM (Total Imaging Matrix) technology that is used for research imaging only. It comes with 128 available RF receive channels, and equipped with 64-ch head and 60-ch body receive coil array for improved image quality. This 60cm MR scanner is capable of delivering unprecedented maximum gradient strength and slew of 80mT/m and 200mT/m/ms, respectively. The system is capable of simultaneous multi-slice EPI functional and diffusion imaging, quantitative flow measurements, CINE, MR angiography, perfusion studies and spectroscopy for both neuro and body applications. An additional Siemens 3T Verio system located at a remote location in Peabody and a 3T TIM Trio at a remote location in Waltham, as well as a 1.5T MR scanner at the main campus are available as part of the Department of Radiology, but they are not used for research purposes.
+
+
+\hypertarget{x-mock-scanner}{\subsubsection*{Mock Scanner}}
+The mock scanner area is used only for research imaging, and has a mock scanner with light fixtures and a head coil with a mirror similar to that of an actual MR scanner. Pre-recorded scanner background noise is available to be played during training sessions. The mock scanner area also contains a projector and screen for stimulus presentation. There is a control room in the area similar to the one next the MR scanner.
+
+
+\hypertarget{x-peabody}{\subsection*{Peabody}}
+\hypertarget{x-siemens-3t-verio}{\subsubsection*{Siemens 3T Verio}}
+ — \emph{not used for research purposes}.
+
+
+\hypertarget{x-waltham}{\subsection*{Waltham}}
+\hypertarget{x-3t-tim-trio}{\subsubsection*{3T TIM Trio}}
+ — \emph{not used for research purposes}.
+
+
+\hypertarget{x-boston-children’s-hospital-ancillary-mri}{\section*{Boston Children’s Hospital Ancillary MRI}}
+The following ancillary equipment is also available:
+
+
+\hypertarget{x-firmm-system-for-real-time-head-motion-monitoring}{\subsection*{FIRMM system for real-time head motion monitoring}}
+The FIRMM system (Turing Medical, St. Louis, MO) that enables real-time head motion feedback during on EPI-based acquisitions like BOLD and diffusion imaging, by receiving the DICOM images from the scanner and calculating motion estimates as the acquisition is running, and conveniently displaying them on a tablet that resides next to the scanner’s console. This provides a quick and convenient way for the scanner operator to know how motion-degraded the acquired volumes are, i.e. what percentage of the acquired data is usable, and thus objectively deciding if more data needs to be acquired.
+
+
+\hypertarget{x-functional-mri-equipment}{\subsection*{Functional MRI Equipment}}
+The research scanner at 2BP is equipped with fMRI equipment from Nordic Neuro Lab. The NordicComfortSolution technology not only offers state of the art fMRI stimulus presentation and response measurement software, nordicAktiva, but it also enables movies and music to be streamed live to the study participant during their MRI exam, providing a more relaxed environment. Additional equipment offered to researchers include a 3D goggle system with eye-tracking capabilities allowing for visual stimuli to be presented directly to the patient’s visual field and eye movements to be logged with Arrington ViewPoint eye-tracking software. Lastly, the system includes an integrated camera on the LCD monitor in the scan room for patient monitoring, allowing for a true line of sight viewing of the patient in the scanner.
+
+
+\hypertarget{x-optoactive-noise-canceling-headphones}{\subsection*{OptoActive Noise Canceling headphones}}
+The research Prisma scanner is also equipped with OptoActive noise canceling headphones, capable of both active and passive noise cancellation. By being able to remove 60 dB of the gradient noise from echo-planar imaging (EPI) sequences, these headphones significantly increase the success rate of research MRI scans in hard-to-image populations like infants and toddlers, patients with autism, ADHD, and those suffering from claustrophobia. Their ultra-slim design makes them fit comfortably even when an adult size head is in the tight 32- or 64-channel head receive array. They are also capable of quiet two-way communication during the MRI scans, enabling not only the possibility to acquire advanced task-based functional MRI data with auditory feedback, but also increasing patient’s comfort as well.
+
+
+\hypertarget{x-cambridge-research-systems-audio-system}{\subsection*{Cambridge Research Systems Audio System}}
+In addition to the OptoActive headphones, the research Prisma scanner is also equipped with an alternative audio system from Cambridge Research System. These top-of-the-line headphones deliver high-fidelity acoustic stimuli for fMRI while also passively attenuating scanner noise. An electro- dynamic driver technology uses the magnetic field of the MRI scanner to drive the headphone membranes, resulting in powerful speakers with excellent frequency response across a wide dynamic range. This audio system is able to accommodate a wide range of age groups including infants, children and adults.
+
+
+\hypertarget{x-equipment-and-space-dedicated-for-baby-mri}{\subsection*{Equipment and space dedicated for baby MRI}}
+The MRI research dedicated space at 2 Brookline space includes an infant sleep room located adjacent to the 3T Prisma scanner room which is equipped with an MRI safe crib and soundproof walls to allow for infant participants to naturally fall asleep prior to their imaging study. There are also two neuropsychology testing rooms which can be booked by investigators. Both rooms are child friendly, and include toys and other equipment that would keep the young kids entertained and engaged in the research studies. The suite also has a specimen preparation laboratory where investigators can fix specimens prior to imaging.
+
+
+\end{document}
+

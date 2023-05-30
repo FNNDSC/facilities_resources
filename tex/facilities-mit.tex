@@ -1,0 +1,226 @@
+%% Preamble %%
+%% A minimal LaTeX preamble
+%% Some packates are needed to implement
+%% Asciidoc features
+
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}               % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}       % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\usepackage{epstopdf}
+\usepackage{color}
+% \usepackage[usenames, dvipsnames]{color}
+% \usepackage{alltt}
+
+
+\usepackage{amssymb}
+% \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[version=3]{mhchem}
+
+
+% Needed to properly typeset
+% standard unicode characters:
+%
+\RequirePackage{fix-cm}
+\usepackage{fontspec}
+\usepackage[Latin,Greek]{ucharclasses}
+%
+% NOTE: you must also use xelatex
+% as the typesetting engine
+
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{en}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.png, .jpg, jpeg, .pdf}
+
+%% \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%% Asciidoc TeX Macros %%
+
+
+% \pagecolor{black}
+%%%%%%%%%%%%
+
+
+% Needed for Asciidoc
+
+\newcommand{\admonition}[2]{\textbf{#1}: {#2}}
+\newcommand{\rolered}[1]{ \textcolor{red}{#1} }
+\newcommand{\roleblue}[1]{ \textcolor{blue}{#1} }
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{problem}{Problem}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+\newtheorem{joke}{Joke}
+\newtheorem{objection}{Objection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Extended quote environment with author
+
+\renewenvironment{quotation}
+{   \leftskip 4em \begin{em} }
+{\end{em}\par }
+
+\def\signed#1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil\raise-3pt\hbox{(#1)}%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+
+\newsavebox\mybox
+
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quotation}}
+  {\signed{\usebox\mybox}\end{quotation}}
+
+\newenvironment{tquote}[1]
+  {  {\bf #1} \begin{quotation} \\ }
+  { \end{quotation} }
+
+%% BOXES: http://tex.stackexchange.com/questions/83930/what-are-the-different-kinds-of-boxes-in-latex
+%% ENVIRONMENTS: https://www.sharelatex.com/learn/Environments
+
+\newenvironment{asciidocbox}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+\newenvironment{titledasciidocbox}[1]
+  {\leftskip6em\rightskip6em\par{\bf #1}\vskip-0.6em\par}
+  {\par}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% http://texblog.org/tag/rightskip/
+
+
+\newenvironment{preamble}
+  {}
+  {}
+
+%% http://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text
+%%
+\newenvironment{sidebar}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+
+%%%%%%%%%%
+
+\newenvironment{comment*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+  \newenvironment{remark*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+
+%% Dummy environment for testing:
+
+\newenvironment{foo}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{foo*}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{click}
+  {\bf Click.\ }
+  {}
+
+\newenvironment{click*}
+  {\bf Click.\ }
+  {}
+
+
+\newenvironment{remark}
+  {\bf Remark.\ }
+  {}
+
+\newenvironment{capsule}
+  {\leftskip10em\par}
+  {\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Style
+
+\parindent0pt
+\parskip8pt
+%% User Macros %%
+%% Front Matter %%
+
+\title{Facilities and Other Resources}
+\author{}
+\date{}
+
+
+%% Begin Document %%
+
+\begin{document}
+\maketitle
+\hypertarget{x-massachusetts-institute-of-technology}{\section*{Massachusetts Institute of Technology}}
+\hypertarget{x-research-laboratory-of-electronics,-rle}{\subsection*{Research Laboratory of Electronics, RLE}}
+Offices are equipped with personal computers for each person, as well as large monitors for programming and visualization of medical images. Access to a Linux server with 24GB of RAM and servers with Tesla graphics processors housed in a cooled basement of building 36 on the MIT campus. A Matlab license is also in place for all laboratory computers.
+
+
+\hypertarget{x-computer-science-and-artificial-intelligence-laboratory,-csail-laboratory:}{\subsection*{Computer Science and Artificial Intelligence Laboratory, CSAIL Laboratory:}}
+The MIT Computer Science and Artificial Intelligence Laboratory (CSAIL) is located in the MIT Stata Center, a truly unique building designed by world-famous architect Frank Gehry. The Center occupies approximately 713,000 gross square feet, and is located in the new gateway to MIT campus at 32 Vassar Street.
+
+
+\hypertarget{x-environment}{\subsubsection*{Environment}}
+CSAIL has long been a leader in the fields of Artificial Intelligence, Cognitive Science, and Computer Science. CSAIL is a home to 110 principal investigators, who include both MIT faculty and research staff; their numbers include seven current or former MacArthur fellows and eight Turing award winners. CSAIL consistently ranks near or at the top of undergraduate and graduate Computer Science programs in the world.
+
+
+\hypertarget{x-institute-for-data-science-and-society-(idss)}{\subsection*{Institute for Data Science and Society (IDSS)}}
+The IDSS is a recently founded epicenter of statistical modeling and machine learning at MIT, and with the MGH/ BWH Clinical Data Science Center (CDSC) explores applications of machine learning in medical
+image computing and radiology.
+
+
+\hypertarget{x-computing}{\section*{Computing}}
+Stata Center’s main data network was designed and implemented by CSAIL’s full-time staff of network and computing system managers, known collectively as T!G (the Infrastructure group). It consists of a state-of-the- art 10 gigabit, single-mode fiber backbone, Cisco Catalyst series switches, a fault-tolerant network topology, and 10/100/1000 Ethernet service via CAT6 copper cable to the desktop. T!G also maintains and supports a variety of centralized computing resources for the CSAIL community, including email service, web servers, DNS, DHCP, and many other common enterprise services. An 802.11g wireless lan is available throughout virtually all of the occupied
+space in the building.
+
+
+The computer vision group, in addition to having access to the resources described above, also maintains an extensive software library. This includes a range of generic public domain and commercial software: different compiler, debugger and software library packages (among others, GNU and Sun proprietary), Netscape, Matlab, Mathematica, and different security related packages such as S-key (one time passwords for access of the lab from outside), ssh and PGP (encryption). Graphics and image processing software packages include XGL, XIL, Open GL, Open Inventor, Data Explorer, Analyze, XV, IslandWrite, IslandPaint, and IslandDraw, and Adobe Photoshop for Unix systems.
+
+
+CSAIL investigators also have access to a high performance cluster at the Massachusetts Green High Performance Computing Center (MGHPCC), the state of the art computing facility in Holyoke, Massachusetts. This resource provides peak capacity of 9,000 - 18,000 cores, peak memory of 36TB and a high-speed working storage of 1.5PB. The system is dedicated to life sciences research, and is jointly operated by a consortium of research groups from five universities and their associated partners. The system enables individual research participants to scale to the entire system for bursts of computation, but is operated so that all participants have balanced access on average. In addition to the resources available at CSAIL, Golland’s group maintains a 300- core cluster for computationally demanding processing. The group also owns 300TB of secure storage space that is maintained by the Infrastructure group. A recent addition to the computing cluster includes servers with close to 100 GPUs to enable acceleration of machine learning algorithms. The computing resources available to the PI will be instrumental for the proposed research, which requires extensive computing power, memory and storage for manipulating large data sets.
+
+
+\end{document}
+

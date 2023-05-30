@@ -1,0 +1,233 @@
+%% Preamble %%
+%% A minimal LaTeX preamble
+%% Some packates are needed to implement
+%% Asciidoc features
+
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}               % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}       % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\usepackage{epstopdf}
+\usepackage{color}
+% \usepackage[usenames, dvipsnames]{color}
+% \usepackage{alltt}
+
+
+\usepackage{amssymb}
+% \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[version=3]{mhchem}
+
+
+% Needed to properly typeset
+% standard unicode characters:
+%
+\RequirePackage{fix-cm}
+\usepackage{fontspec}
+\usepackage[Latin,Greek]{ucharclasses}
+%
+% NOTE: you must also use xelatex
+% as the typesetting engine
+
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{en}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.png, .jpg, jpeg, .pdf}
+
+%% \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%% Asciidoc TeX Macros %%
+
+
+% \pagecolor{black}
+%%%%%%%%%%%%
+
+
+% Needed for Asciidoc
+
+\newcommand{\admonition}[2]{\textbf{#1}: {#2}}
+\newcommand{\rolered}[1]{ \textcolor{red}{#1} }
+\newcommand{\roleblue}[1]{ \textcolor{blue}{#1} }
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{problem}{Problem}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+\newtheorem{joke}{Joke}
+\newtheorem{objection}{Objection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Extended quote environment with author
+
+\renewenvironment{quotation}
+{   \leftskip 4em \begin{em} }
+{\end{em}\par }
+
+\def\signed#1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil\raise-3pt\hbox{(#1)}%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+
+\newsavebox\mybox
+
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quotation}}
+  {\signed{\usebox\mybox}\end{quotation}}
+
+\newenvironment{tquote}[1]
+  {  {\bf #1} \begin{quotation} \\ }
+  { \end{quotation} }
+
+%% BOXES: http://tex.stackexchange.com/questions/83930/what-are-the-different-kinds-of-boxes-in-latex
+%% ENVIRONMENTS: https://www.sharelatex.com/learn/Environments
+
+\newenvironment{asciidocbox}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+\newenvironment{titledasciidocbox}[1]
+  {\leftskip6em\rightskip6em\par{\bf #1}\vskip-0.6em\par}
+  {\par}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% http://texblog.org/tag/rightskip/
+
+
+\newenvironment{preamble}
+  {}
+  {}
+
+%% http://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text
+%%
+\newenvironment{sidebar}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+
+%%%%%%%%%%
+
+\newenvironment{comment*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+  \newenvironment{remark*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+
+%% Dummy environment for testing:
+
+\newenvironment{foo}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{foo*}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{click}
+  {\bf Click.\ }
+  {}
+
+\newenvironment{click*}
+  {\bf Click.\ }
+  {}
+
+
+\newenvironment{remark}
+  {\bf Remark.\ }
+  {}
+
+\newenvironment{capsule}
+  {\leftskip10em\par}
+  {\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Style
+
+\parindent0pt
+\parskip8pt
+%% User Macros %%
+%% Front Matter %%
+
+\title{Facilities and Other Resources}
+\author{}
+\date{}
+
+
+%% Begin Document %%
+
+\begin{document}
+\maketitle
+\hypertarget{x-boston-children’s-hospital-research-computing}{\section*{Boston Children’s Hospital Research Computing}}
+\hypertarget{x-overview}{\subsection*{Overview}}
+BCH Research Computing (RC) is devoted to providing support for the special computing needs of the research community at Children’s. RC provides data storage and backup for over 90 research entities at BCH. These data add up to more than 15PB. RC offers support, software, desktop backup, and training. The RC technicians are certified by Apple and Dell. RC also does in-house application development and provides technical support for several research support systems. More recently, RC has released a new support model called Pediatric Scholar, based on changing market conditions and community interest. Many new cloud services and software are now tied to the BCH user account rather than individual PCs and Macs. RC also provides recommendations for additional software packages that can often be purchased with an additional discount. Please see the following for software supported in Pediatric Scholar.
+
+
+\begin{itemize}
+
+\item Productivity and Research Data Management Tools: GSuite and Google collaborative tools, Lab Archives, DropBox Business
+
+\item Human Genomics Software: WuXi NextCODE 4.15, Alamut Visual Software, Golden Helix VarSeq 1.4.4
+
+\item Molecular Biology Software: Geneious, version 11, DNASTAR Lasergene 12, MacVector 15.5, Sequencher 5.4.6,Ingenuity Pathway Analysis (IPA)
+
+\item Bioinformatics Tools: BLAST, HOMER, MACS, Bowtie, Cufflinks, Tophat, Cytoscape, Integrative Genomics Viewer, FlowJo
+
+\item Statistic Software: RStudio,  PASS 15, SAS 9.4, Stata 15, MATLAB 2017a, GraphPad Prism 7, SPSS 24
+
+\item Manuscript and Basic Productivity Tools: Microsoft Office365, EndNote 8, Adobe Acrobat DC/2015.
+
+\end{itemize}
+
+
+\hypertarget{x-bch-hpc-cluster}{\subsection*{BCH HPC Cluster}}
+Research Computing hosts the E2 high-performance cluster that is accessible to all researchers in BCH
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+Large Memory Servers & bch-largemem & Intel Xeon (2.2, 2.8 GHz) & - & 4 & 244 & - & 256, 512, 768GB \\ 
+GPU Servers & bch-gpu & Intel Xeon (2.2, 2.9GHz) & TeslaK80, Tesla T4, Titan RTX, Quadro RTX & 5 & 3-4 & 29 & 192, 512, 768 GB \\ 
+General Compute & bch-compute, bch-interactive & Intel Xeon (2.2, 2.5, 2.67, 2.8, 2.9 GHz) & - & 27 & 864 & - & 64, 96, 128, 256, 512, 768 GB \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}
+

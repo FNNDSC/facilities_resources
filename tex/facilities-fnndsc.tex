@@ -1,0 +1,245 @@
+%% Preamble %%
+%% A minimal LaTeX preamble
+%% Some packates are needed to implement
+%% Asciidoc features
+
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}               % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}       % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\usepackage{epstopdf}
+\usepackage{color}
+% \usepackage[usenames, dvipsnames]{color}
+% \usepackage{alltt}
+
+
+\usepackage{amssymb}
+% \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[version=3]{mhchem}
+
+
+% Needed to properly typeset
+% standard unicode characters:
+%
+\RequirePackage{fix-cm}
+\usepackage{fontspec}
+\usepackage[Latin,Greek]{ucharclasses}
+%
+% NOTE: you must also use xelatex
+% as the typesetting engine
+
+
+% \usepackage{fontspec}
+% \usepackage{polyglossia}
+% \setmainlanguage{en}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.png, .jpg, jpeg, .pdf}
+
+%% \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%% Asciidoc TeX Macros %%
+
+
+% \pagecolor{black}
+%%%%%%%%%%%%
+
+
+% Needed for Asciidoc
+
+\newcommand{\admonition}[2]{\textbf{#1}: {#2}}
+\newcommand{\rolered}[1]{ \textcolor{red}{#1} }
+\newcommand{\roleblue}[1]{ \textcolor{blue}{#1} }
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{problem}{Problem}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+\newtheorem{note}{Note}
+\newtheorem{joke}{Joke}
+\newtheorem{objection}{Objection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Extended quote environment with author
+
+\renewenvironment{quotation}
+{   \leftskip 4em \begin{em} }
+{\end{em}\par }
+
+\def\signed#1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil\raise-3pt\hbox{(#1)}%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+
+\newsavebox\mybox
+
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quotation}}
+  {\signed{\usebox\mybox}\end{quotation}}
+
+\newenvironment{tquote}[1]
+  {  {\bf #1} \begin{quotation} \\ }
+  { \end{quotation} }
+
+%% BOXES: http://tex.stackexchange.com/questions/83930/what-are-the-different-kinds-of-boxes-in-latex
+%% ENVIRONMENTS: https://www.sharelatex.com/learn/Environments
+
+\newenvironment{asciidocbox}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+\newenvironment{titledasciidocbox}[1]
+  {\leftskip6em\rightskip6em\par{\bf #1}\vskip-0.6em\par}
+  {\par}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% http://texblog.org/tag/rightskip/
+
+
+\newenvironment{preamble}
+  {}
+  {}
+
+%% http://tex.stackexchange.com/questions/99809/box-or-sidebar-for-additional-text
+%%
+\newenvironment{sidebar}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+
+%%%%%%%%%%
+
+\newenvironment{comment*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+  \newenvironment{remark*}
+  {\leftskip6em\rightskip6em\par}
+  {\par}
+
+
+%% Dummy environment for testing:
+
+\newenvironment{foo}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{foo*}
+  {\bf Foo.\ }
+  {}
+
+
+\newenvironment{click}
+  {\bf Click.\ }
+  {}
+
+\newenvironment{click*}
+  {\bf Click.\ }
+  {}
+
+
+\newenvironment{remark}
+  {\bf Remark.\ }
+  {}
+
+\newenvironment{capsule}
+  {\leftskip10em\par}
+  {\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Style
+
+\parindent0pt
+\parskip8pt
+%% User Macros %%
+%% Front Matter %%
+
+\title{Facilities and Other Resources}
+\author{}
+\date{}
+
+
+%% Begin Document %%
+
+\begin{document}
+\maketitle
+\hypertarget{x-the-fetal-neonatal-neuroimaging-and-development-science-center-(fnndsc)}{\section*{The Fetal-Neonatal Neuroimaging and Development Science Center (FNNDSC)}}
+\hypertarget{x-overview}{\subsection*{Overview}}
+BCH’s Fetal-Neonatal Neuroimaging and Developmental Science Center (FNNDSC) brings together physician-scientists from multiple fields to further the capabilities of both neuroimaging modalities and the analysis performed on neuroimaging data. Research at the center examines the use of magnetic resonance imaging (MRI), magnetoencephalography (MEG) and near-infrared spectroscopy (NIRS) across multiple subspecialties, with an emphasis towards improving the technology and better interpreting the data it collects. Multidisciplinary researchers are guided by a deep understanding of fetal, newborn, infant and toddler brain, including its rapid pace of anatomic and physiologic change, its plasticity and—in the case of very young children—its inaccessibility to standard cognitive and neurological tests. The multiple modalities employed by the center are safe and provide the most sophisticated means of monitoring brain and development. The translational aim of the center is to permit clinicians, with the help of enhanced hardware and software, to evaluate the structures and physiological health of brain regions that promote developing functions. This will allow clinicians to better predict outcomes and optimize treatment options for individual children. As a result of such research, BCH has made or is in the process of making several improvements to its clinical
+care, including:
+
+
+\begin{itemize}
+
+\item Pediatric-size MEG system for improving the localization of seizures in infants and toddlers with medically refractory epilepsy
+
+\item Bedside near-infrared spectroscopy equipment that, unlike commercial devices, provides quantitative measures of cerebral blood volume, blood flow, oxygen saturation and oxygen metabolism.
+
+\item Novel MRI acquisition and post-processing methods for improved structural and physiological measures of fetuses (including the placenta), infants and children
+
+\item Limiting or eliminating sedation for pediatric imaging studies
+
+\item Leading edge computing capabilities including a dedicated high-performance compute cluster for analyzing large research problems, high end workstations for local analysis and development of software
+
+\item In-house developed web-based tools for clinicians, clinician-scientists, and researchers to access innovative
+
+\item MRI post-processing tools and also visualize medical image data in powerful ways on web browsers and mobile devices
+
+\item Powerful visual tools for real-time collaboration on medical image data
+
+\end{itemize}
+
+
+\hypertarget{x-facility}{\subsection*{Facility}}
+The FNNDSC is located in the Landmark Center, with space totaling over 5800 square feet with mixed of private offices and open concept desks to allow for collaboration and interactions between technical and research staff, postdocs, students, and administrative staff. The space consists of a single office, 10 shared offices (double occupancies), one workroom/conference room, one storage/server room and 73 workstations. Each faculty member has a dedicated computer workstation. The entire team sits in close proximity including all research staff and administrative support. Located in this area are the Division director, grants administration and purchasing personnel. Facilities include fax/copy machines, standard and color laser printers, and faculty and staff mailboxes. Additional laboratory space is available on the ninth floor of the Enders Building.
+
+
+\hypertarget{x-laboratory}{\subsection*{Laboratory}}
+The FNNDSC at BCH research laboratory is integrated into the hospital infrastructure, often sharing clinical resources, to allow access to the very young and very fragile as well as routine access to children of all ages with seamless integration into the clinical environment.
+
+
+\hypertarget{x-computational-resources}{\subsection*{Computational Resources}}
+The FNNDSC computational resources are divided into two main components: a “front end” with workstation class machines for desktop usage, and a high performance cluster (HPC) “back end” for computation research and data storage/backup. Front-end workstations are all run Ubuntu Linux-based, and are maintained at the current and most previous LTS release versions (currently Ubuntu 20.04 through 22.04). Taken together, the “front end” comprises 30+ Linux machines with approximately 80TB of HDD space spread across all the workstations, and approximately 3TB of RAM and 350+ cores. Several of the workstations also have high-end GPUs used for primarily machine learning purposes.
+
+
+Most of the backend resources comprise server-class machines running a mix of CentosOS and Ubuntu (see the relevant Equipment document for information on the backend equipement).
+
+
+The Center has several MatLAB licenses that are used in research software prototyping and development while conventional C/C++ compilers, python interpreters, web servers with integrated LAMP, etc, are natively available on all Linux workstations for dedicated high-performance algorithm development and testing.
+
+
+The FNNDSC uses 370TB of BCH Research Computing mananged sotrage for user home directories and shared research projects. This storage is Enterprise-class, redundantly backed up, and replicated. An additional dedicated 100TB partition of non-replicated storage is available for archival purposes.
+
+
+\end{document}
+

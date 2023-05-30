@@ -35,6 +35,11 @@ No worries.  We got you. Just look in the `docx` directory for Word files. Pleas
 
 Currently, this repository contains `pdf`, `html` and `docx` conversions of the core AsciiDoc text files.
 
+== What are the other directories?
+
+You'll notice there are several other directories. The `html` and `pdf` directories should be pretty obvious and contain `html` and `pdf` derivatives of the original `adoc` files.
+
+The `tex` and `tex-pdf` might seem a bit unfamiliar. First off, the `tex` directory contains LaTeX formatted files (LaTeX is another text file type used very much in physical sciences, engineering, and mathematics). The `tex-pdf` is simply the output `tex` files that have been converted to `pdf` by the `xelatex` program, available for easy install on most Linux distros and on macOS with `homebrew`). These pdf outputs look a bit different than the ones in the `pdf` directory, and are included just for completeness sake -- showing how the `tex` files might be converted using a LaTeX engine.
 
 == How to use?
 
@@ -54,10 +59,24 @@ to pull the repo. If you want to make changes to the `adoc` and then automatical
 
 [source,console]
 ----
+#
 # to build the derivatives you need
-# 'make', 'asciidoctor', 'ascidoctor-pdf', 'pandoc'
+# 'make', 'asciidoctor', 'asciidoctor-pdf', 'pandoc', 'asciidoctor-latex'
+# (some packages might need `gem` to be installed, i.e.
+#   gem install asciidoctor-latex --pre
+#)
+#
+# on `arch` linux you might do
+# yay -S texlive-extra texlive-science texlive-mhchem-bundle
 cd facilities_resources
 make
+
+# if you want to clean things up, do
+make clean
+
+# if you just want say the docs outputs, do
+make clean
+make docx
 ----
 
 == Contributions welcome!
